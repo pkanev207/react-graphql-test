@@ -1,0 +1,11 @@
+@font-face {
+  font-family: "Rajdhani-Medium";
+  src: url("../styles/Rajdhani-SemiBold.ttf") format("truetype");
+}
+
+.App {
+  border: 1px solid tomato;
+  text-align: center;
+  color: teal;
+  font-family: "Rajdhani-Medium";
+}

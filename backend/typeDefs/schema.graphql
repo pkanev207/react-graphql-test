@@ -1,0 +1,50 @@
+type User {
+  id: ID!
+  firstName: String!
+  lastName: String!
+  email: String!
+  password: String!
+}
+
+input CreateUserInput {
+  firstName: String!
+  lastName: String!
+  email: String!
+  password: String!
+}
+
+type Kitten {
+  id: String
+  name: String!
+  breed: String
+}
+
+type Query {
+  getUsers: [User]!
+  getUser(id: ID!): User
+  getKittens: [Kitten]
+  getKitten(id: ID!): Kitten
+}
+
+type Mutation {
+  createUser(input: CreateUserInput!): User!
+  updateUser(id: String!, name: String!, password: String!): User
+  deleteUser(id: String!): User
+
+  createKitten(name: String!, breed: String): Kitten
+  updateKitten(id: String!, name: String!, breed: String): Kitten
+  deleteKitten(id: String!): Kitten
+}
+
+# type Mutation {
+#   createRecord(name: String!, position: String, level: String): Record
+#   deleteRecord(id: ID!): Boolean
+#   updateRecord(id: ID!, name: String, position: String, level: String): Record
+# }
+
+# type Record {
+#   id: ID
+#   name: StringS
+#   position: String
+#   level: String
+# }
