@@ -10,7 +10,7 @@ import mongoose from "mongoose";
 
 const connectDB = async () => {
   const conn = await mongoose.connect("mongodb://127.0.0.1:27017/test");
-
+  // eslint-disable-next-line @typescript-eslint/unbound-method
   console.log(`MongoDB Connected: ${conn.connection.host}`.cyan.underline.bold);
 };
 

@@ -27,6 +27,8 @@ module.exports = {
     path: path.resolve(__dirname, "dist"), // output folder
     publicPath: "/",
     filename: "bundle.js",
+    clean: true,
+    assetModuleFilename: "images/[name][ext][query]",
   },
   module: {
     rules: [

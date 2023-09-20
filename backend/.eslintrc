@@ -4,7 +4,7 @@
     "ecmaVersion": 12,
     "sourceType": "module",
     "project": true,
-    "tsconfigRootDir": "."
+    "tsconfigRootDir": "./src"
   },
   "root": true,
   "plugins": ["@typescript-eslint"],

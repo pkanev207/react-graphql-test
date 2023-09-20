@@ -5,7 +5,7 @@ const Kitten = mongoose.model(
   new mongoose.Schema({
     name: { type: String, required: true },
     breed: String,
-  })
+  }),
 );
 
 export default Kitten;
