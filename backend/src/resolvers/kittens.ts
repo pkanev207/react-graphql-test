@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import Kitten from "../models/kittens.js";
 
 const kittensQuery = {
@@ -20,7 +22,7 @@ const kittensMutation = {
     return await kitten.save();
   },
   updateKitten: async (parent, args) => {
-    return await Kitten.findOneAndUpdate({ _id: args._id }, args);
+    return await Kitten.findOneAndUpdate({ _id: args._id }, args as object);
   },
   deleteKitten: async (parent, args) => {
     return await Kitten.findOneAndDelete({ _id: args._id });

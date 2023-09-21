@@ -1,5 +1,6 @@
 import { usersQuery, usersMutation } from "./user.js";
-import { kittensQuery, kittensMutation } from "./kittens.js";
+// import { kittensQuery, kittensMutation } from "./kittens.js";
+import { kittensQuery, kittensMutation } from "./kittens.ts";
 
 // const UserQuery = {
 //   Query: {

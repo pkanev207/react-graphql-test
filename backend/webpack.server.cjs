@@ -5,11 +5,14 @@
 const path = require("path");
 const webpackNodeExternals = require("webpack-node-externals");
 
+const ESLintPlugin = require("eslint-webpack-plugin");
+
 module.exports = {
   // target: "node",
   mode: "development",
   entry: "./index.ts",
   resolve: {
+    modules: [path.resolve(__dirname, "./src"), path.resolve(__dirname, "./node_modules/")],
     // allows to skip extensions when importing
     extensions: [".tsx", ".ts", ".jsx", ".js"],
   },
@@ -62,4 +65,5 @@ module.exports = {
       },
     ],
   },
+  // plugins: [new ESLintPlugin()],
 };

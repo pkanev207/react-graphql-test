@@ -2,8 +2,6 @@ node_modules
 tests
 index.js
 *.config.js
-*.config.cjs
 dist
 coverage
 .husky
-index.ts

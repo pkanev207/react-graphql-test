@@ -5,6 +5,7 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 //@ts-nocheck
 import express from "express";
+import "dotenv/config";
 import "graphql-import-node";
 import gql from "graphql-tag";
 import cors from "cors";
@@ -44,6 +45,8 @@ app.use(function (err, req, res, next) {
   }
 });
 
+console.log(process.env.MY_SECRET);
+
 const server = new ApolloServer({
   schema: buildSubgraphSchema({ typeDefs, resolvers }),
 });
@@ -57,4 +60,4 @@ app.get("/test/kittens", async (_req, res) => {
   res.send(kittens);
 });
 
-app.listen(3000, () => console.log("Listening on port 3000".green));
+app.listen(3000, () => console.log("Server listening on port 3000".green));

@@ -13,7 +13,10 @@
     "db": "docker compose up --build -d",
     "format": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\"",
     "webpack": "webpack --config webpack.server.cjs --watch",
-    "webpack:start": "nodemon --watch dist --exec node dist/bundle.cjs"
+    "webpack:start": "nodemon --watch dist --exec node dist/bundle.cjs",
+    "test:tsc": "tsc --no-emit",
+    "serve": "node dist/bundle.cjs",
+    "serveWithNodemon": "nodemon --exec babel-node src/index.js"
   },
   "keywords": [],
   "author": "",
@@ -57,6 +60,7 @@
     "eslint": "^8.49.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-prettier": "^5.0.0",
+    "eslint-webpack-plugin": "^4.0.1",
     "nodemon": "^3.0.1",
     "prettier": "^3.0.3",
     "ts-node": "^10.9.1",

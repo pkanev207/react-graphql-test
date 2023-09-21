@@ -7,9 +7,11 @@ Scaffold with Webpack 5
 ### Commands
 
 in the backend:
-npm run db // starts db
-npm start // starts the app with tsx
+npm run db - _starts db_  
+npm start - _starts the app with tsx_  
 npm run webpack &&
-npm run webpack:start // starts the app with webpack
+npm run webpack:start - _starts the app with webpack_  
 
-in the client: npm run dev  
+in the client:  
+npm start - _starts in development mode_  
+npm run build + Live reload server - _starts in production mode_  
