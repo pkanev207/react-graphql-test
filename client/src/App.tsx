@@ -1,6 +1,6 @@
 import React from "react";
 import Typography from "./components/Typography";
-import KittensList from "./pages/KittensList";
+import KittensList from "./pages/kittens/KittensList";
 
 // set "noEmit": true in tsconfig.json
 function App() {

@@ -75,8 +75,39 @@ module.exports = {
       },
       // {
       //   test: /\.css$/,
-      //   use: ["style-loader", "css-loader"], // for styles
+      //   // exclude modules for the regular rule:
+      //   exclude: /\.module\.css$/,
+      //   use: ["style-loader", "css-loader"],
       // },
+      {
+        // for modules only:
+        test: /\.css$/,
+        include: /\.module\.css/,
+        use: [
+          "style-loader",
+          {
+            loader: "css-loader",
+            options: {
+              // enables css modules for this files:
+              modules: {
+                // readable classnames for development:
+                localIdentName: "[local]--[md4:hash:7]",
+              },
+            },
+          },
+        ],
+      },
+      {
+        test: /\.scss$/,
+        use: [
+          "style-loader",
+          // replace to make separate css file:
+          // MiniCssExtractPlugin.loader,
+          "css-loader",
+          "sass-loader",
+        ],
+        // Webpack processes loaders from right to left
+      },
       // {
       //   test: /\.(graphql|gql)$/,
       //   exclude: /node_modules/,
