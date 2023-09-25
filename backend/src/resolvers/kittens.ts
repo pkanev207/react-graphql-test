@@ -4,10 +4,10 @@ import Kitten from "../models/kittens.js";
 
 const kittensQuery = {
   getKitten: async (_, args) => {
-    return await Kitten.findOne({ _id: args._id });
+    // console.log("From getKittens!");
+    return await Kitten.findOne({ _id: args.id });
   },
   getKittens: async () => {
-    // console.log("From getKittens!");
     return await Kitten.find({});
   },
 };

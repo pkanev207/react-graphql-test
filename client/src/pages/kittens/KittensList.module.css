@@ -6,6 +6,7 @@
   /* font-family: cursive; */
 
   font-size: 25px;
+  gap: 12px;
 }
 
 .Kittens li {
@@ -16,4 +17,19 @@
   list-style: none;
   text-decoration: none;
   /* border-bottom: dotted; */
+}
+
+.CreateLink {
+  color: #364a88;
+  text-decoration: none;
+  position: absolute;
+  top: 5rem;
+  right: 15rem;
+  /* top: -4rem;
+  left: 30rem; */
+}
+
+.CreateLink:hover {
+  cursor: pointer;
+  color: tomato;
 }

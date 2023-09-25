@@ -4,8 +4,8 @@ import styles from "./KittensList.module.css";
 import { gql, useQuery } from "@apollo/client";
 import { Link } from "react-router-dom";
 
-const GET_KITTENS = gql`
-  query {
+export const GET_KITTENS = gql`
+  query GetKittens {
     getKittens {
       id
       name
@@ -25,11 +25,14 @@ export default function KittensList() {
     return <div className="InfoBox">Error: {error.message}</div>;
   }
 
-  console.log(data.getKittens);
-
+  // console.log(data.getKittens);
   return (
     <div className={styles.Kittens}>
-      KittensList
+      <p> KittensList</p>
+      <Link to={"/create"} className={styles.CreateLink}>
+        Create
+      </Link>
+
       <ul>
         {data.kittens <= 0 ? (
           <p>No kittens!</p>

@@ -4,6 +4,7 @@ import Typography from "./components/Typography";
 import KittensList from "./pages/kittens/KittensList";
 import Kitten from "./pages/kitten/Kitten";
 import Register from "./pages/register/Register";
+import Create from "./pages/create/Create";
 import "./styles/styles.scss";
 
 // set "noEmit": true in tsconfig.json
@@ -21,6 +22,7 @@ function App() {
           <Route path="/:id" element={<Kitten />} />
           <Route path="/" element={<KittensList />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/create" element={<Create />} />
         </Routes>
       </div>
     </BrowserRouter>
