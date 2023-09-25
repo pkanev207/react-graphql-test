@@ -3,9 +3,26 @@
   src: url("../styles/Rajdhani-SemiBold.ttf") format("truetype");
 }
 
+.Container {
+  width: 50rem;
+  padding: 12px;
+  margin: auto;
+  font-family: "Rajdhani-Medium";
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
 .App {
   border: 1px solid tomato;
-  text-align: center;
   color: teal;
-  font-family: "Rajdhani-Medium";
+}
+
+.InfoBox {
+  border: 1px solid tomato;
+  text-align: center;
+  padding: 12px;
+  font-family: cursive;
+  font-size: 25px;
 }

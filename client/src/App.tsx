@@ -1,6 +1,10 @@
 import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Typography from "./components/Typography";
 import KittensList from "./pages/kittens/KittensList";
+import Kitten from "./pages/kitten/Kitten";
+import Register from "./pages/register/Register";
+import "./styles/styles.scss";
 
 // set "noEmit": true in tsconfig.json
 function App() {
@@ -9,12 +13,18 @@ function App() {
   console.log(process.env.NODE_ENV);
 
   return (
-    <div className="App">
-      <h1>Hello World...!!!!!</h1>
-      <Typography variant="h2">Render H2</Typography>
-
-      <KittensList></KittensList>
-    </div>
+    <BrowserRouter>
+      <div className="Container">
+        <header className="App">Hello World...!!!!!</header>
+        <Typography variant="h2">Render H2</Typography>
+        <Routes>
+          <Route path="/:id" element={<Kitten />} />
+          <Route path="/" element={<KittensList />} />
+          <Route path="/register" element={<Register />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
+
 export default App;

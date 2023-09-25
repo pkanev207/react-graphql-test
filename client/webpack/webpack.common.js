@@ -44,6 +44,7 @@ module.exports = {
     publicPath: "auto",
     clean: true,
     assetModuleFilename: "images/[name][ext][query]",
+    publicPath: "/",
   },
   // output: {
   //   path: path.resolve(__dirname, "..", "../dist"),

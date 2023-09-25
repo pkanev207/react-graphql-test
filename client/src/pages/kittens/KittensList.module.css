@@ -1,3 +1,19 @@
 .Kittens {
   color: limegreen;
+  border: 1px solid tomato;
+  text-align: center;
+  padding: 12px;
+  /* font-family: cursive; */
+
+  font-size: 25px;
+}
+
+.Kittens li {
+  width: 20rem;
+  margin: auto;
+  margin: "0";
+  /* padding: 36px 0 36px 84px; */
+  list-style: none;
+  text-decoration: none;
+  /* border-bottom: dotted; */
 }

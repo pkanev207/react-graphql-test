@@ -25,6 +25,7 @@ module.exports = {
       index: true,
       writeToDisk: true,
     },
+    historyApiFallback: true,
   },
   devtool: "eval-source-map",
   // devtool: "source-map",
