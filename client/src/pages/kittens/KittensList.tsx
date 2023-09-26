@@ -28,10 +28,12 @@ export default function KittensList() {
   // console.log(data.getKittens);
   return (
     <div className={styles.Kittens}>
-      <p> KittensList</p>
-      <Link to={"/create"} className={styles.CreateLink}>
-        Create
-      </Link>
+      <div className="Holder">
+        <p> KittensList</p>
+        <Link to={"/create"} className={styles.CreateLink}>
+          Create
+        </Link>
+      </div>
 
       <ul>
         {data.kittens <= 0 ? (
@@ -40,7 +42,8 @@ export default function KittensList() {
           data.getKittens.map((k: any) => {
             return (
               <li key={window.crypto.randomUUID()}>
-                <Link to={`/${k.id}`} target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none" }}>
+                {/* <Link to={`/${k.id}`} target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none" }}> */}
+                <Link to={`/${k.id}`} style={{ textDecoration: "none" }}>
                   <p>{k.name}</p>
                 </Link>
               </li>

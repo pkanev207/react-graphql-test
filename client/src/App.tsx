@@ -5,6 +5,7 @@ import KittensList from "./pages/kittens/KittensList";
 import Kitten from "./pages/kitten/Kitten";
 import Register from "./pages/register/Register";
 import Create from "./pages/create/Create";
+import Edit from "./pages/edit/Edit";
 import "./styles/styles.scss";
 
 // set "noEmit": true in tsconfig.json
@@ -23,6 +24,7 @@ function App() {
           <Route path="/" element={<KittensList />} />
           <Route path="/register" element={<Register />} />
           <Route path="/create" element={<Create />} />
+          <Route path="/edit" element={<Edit />} />
         </Routes>
       </div>
     </BrowserRouter>

@@ -1,5 +1,7 @@
 .Kittens {
-  color: limegreen;
+  display: flex;
+  flex-direction: column;
+  color: chocolate;
   border: 1px solid tomato;
   text-align: center;
   padding: 12px;
@@ -19,14 +21,18 @@
   /* border-bottom: dotted; */
 }
 
+.Holder {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-around;
+}
+
 .CreateLink {
-  color: #364a88;
+  color: limegreen;
   text-decoration: none;
-  position: absolute;
+  /* position: absolute;
   top: 5rem;
-  right: 15rem;
-  /* top: -4rem;
-  left: 30rem; */
+  right: 15rem; */
 }
 
 .CreateLink:hover {

@@ -32,8 +32,8 @@ type Mutation {
   deleteUser(id: String!): User
 
   createKitten(name: String!, breed: String): Kitten
-  updateKitten(id: String!, name: String!, breed: String): Kitten
-  deleteKitten(id: String!): Kitten
+  updateKitten(id: ID!, name: String!, breed: String): Kitten
+  deleteKitten(id: ID!): Kitten
 }
 
 # type Mutation {
