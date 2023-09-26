@@ -2,7 +2,7 @@
 
 This project is with educational and testing purposes.
 Added GraphQL to MERN stack application.  
-Scaffold with Webpack 5
+Scaffold with Webpack 5, Typescript, ESLint, Prettier
 
 ### Commands
 

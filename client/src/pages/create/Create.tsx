@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { gql, useMutation } from "@apollo/client";
 import { GET_KITTENS } from "../kittens/KittensList";
 
-const CREATE_KITTY = gql`
+export const CREATE_KITTY = gql`
   mutation CreateKitty($name: String!, $breed: String!) {
     createKitten(name: $name, breed: $breed) {
       id

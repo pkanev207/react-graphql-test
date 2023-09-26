@@ -22,7 +22,8 @@ const kittensMutation = {
     return await kitten.save();
   },
   updateKitten: async (parent, args) => {
-    return await Kitten.findOneAndUpdate({ _id: args.id }, args as object);
+    await Kitten.findOneAndUpdate({ _id: args.id }, args as object);
+    return await Kitten.findOne({ _id: args.id });
   },
   deleteKitten: async (parent, args) => {
     return await Kitten.findOneAndDelete({ _id: args.id });

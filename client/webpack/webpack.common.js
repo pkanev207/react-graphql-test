@@ -29,15 +29,9 @@ module.exports = {
   resolve: {
     extensions: [".tsx", ".ts", ".jsx", ".js"],
   },
-  plugins: [
-    new DotEnv(),
-    // new DotEnv({ path: path.resolve(__dirname, "..", "./.env.development") }),
-    new CleanWebpackPlugin(),
-    new HtmlWebpackPlugin({
-      title: "Hello Webpack bundled JavaScript Project",
-      template: path.resolve(__dirname, "..", "./src/index.html"),
-    }),
-  ],
+  devServer: {
+    static: path.resolve(__dirname, "..", "./dist"),
+  },
   output: {
     filename: "[name].bundle.js",
     path: path.resolve(__dirname, "../dist"), // output folder
@@ -50,7 +44,13 @@ module.exports = {
   //   path: path.resolve(__dirname, "..", "../dist"),
   //   filename: "bundle.js",
   // },
-  devServer: {
-    static: path.resolve(__dirname, "..", "./dist"),
-  },
+  plugins: [
+    new DotEnv(),
+    // new DotEnv({ path: path.resolve(__dirname, "..", "./.env.development") }),
+    new CleanWebpackPlugin(),
+    new HtmlWebpackPlugin({
+      title: "Hello Webpack bundled JavaScript Project",
+      template: path.resolve(__dirname, "..", "./src/index.html"),
+    }),
+  ],
 };

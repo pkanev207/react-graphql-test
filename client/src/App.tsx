@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import Typography from "./components/Typography";
 import KittensList from "./pages/kittens/KittensList";
 import Kitten from "./pages/kitten/Kitten";
@@ -14,11 +14,19 @@ function App() {
   console.log(process.env.STRANGE_INDIAN_NAME);
   console.log(process.env.NODE_ENV);
 
+  // import { useHistory, useLocation } from "react-router-dom";
+  // const history = useHistory();
+  // const location = useLocation();
+  // console.log(history.location.pathname === location.pathname);
+
   return (
     <BrowserRouter>
       <div className="Container">
-        <header className="App">Hello World...!!!!!</header>
-        <Typography variant="h2">Render H2</Typography>
+        <div className="Holder">
+          <header className="App">Hello World...!!!!!</header>
+          <Typography variant="h2">Render H2</Typography>
+          <Link to={"/"}>Home</Link>
+        </div>
         <Routes>
           <Route path="/:id" element={<Kitten />} />
           <Route path="/" element={<KittensList />} />

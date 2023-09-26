@@ -4,27 +4,27 @@ import { gql, useQuery, useMutation } from "@apollo/client";
 import { GET_KITTENS } from "../kittens/KittensList";
 import styles from "./Kitten.module.scss";
 
+export const GET_KITTEN = gql`
+  query GetKitten($id: ID!) {
+    getKitten(id: $id) {
+      id
+      name
+      breed
+    }
+  }
+`;
+
+export const DELETE_KITTY = gql`
+  mutation DeleteKitty($id: ID!) {
+    deleteKitten(id: $id) {
+      name
+    }
+  }
+`;
+
 export default function Kitten() {
   const { id } = useParams();
   const navigate = useNavigate();
-
-  const GET_KITTEN = gql`
-    query GetKitten($id: ID!) {
-      getKitten(id: $id) {
-        id
-        name
-        breed
-      }
-    }
-  `;
-
-  const DELETE_KITTY = gql`
-    mutation DeleteKitty($id: ID!) {
-      deleteKitten(id: $id) {
-        name
-      }
-    }
-  `;
 
   const { loading, error, data } = useQuery(GET_KITTEN, {
     variables: { id },
@@ -63,7 +63,7 @@ export default function Kitten() {
           <button
             onClick={() => {
               console.log("Clicked!");
-              navigate("/edit", { state: { id } });
+              navigate("/edit", { state: { ...data.getKitten } });
             }}
             className={styles.DeleteButton}
             style={{ color: "limegreen" }}
