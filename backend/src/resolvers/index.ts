@@ -1,6 +1,10 @@
-import { usersQuery, usersMutation } from "./user.js";
-// import { kittensQuery, kittensMutation } from "./kittens.js";
+import { usersQuery, usersMutation } from "./user.ts";
 import { kittensQuery, kittensMutation } from "./kittens.ts";
+
+const Query = { ...usersQuery, ...kittensQuery };
+const Mutation = { ...usersMutation, ...kittensMutation };
+
+export { Query, Mutation };
 
 // const UserQuery = {
 //   Query: {
@@ -25,7 +29,3 @@ import { kittensQuery, kittensMutation } from "./kittens.ts";
 //   Query: { ...usersQuery, ...kittensQuery },
 //   Mutation: { ...usersMutation, ...kittensMutation },
 // };
-const Query = { ...usersQuery, ...kittensQuery };
-const Mutation = { ...usersMutation, ...kittensMutation };
-
-export { Query, Mutation };

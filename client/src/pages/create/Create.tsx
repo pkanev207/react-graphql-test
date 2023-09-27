@@ -20,7 +20,6 @@ export default function Create() {
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // console.log(formData);
     createKitty({
       variables: { name: formData.name, breed: formData.breed },
       refetchQueries: [GET_KITTENS, "GetKittens"],

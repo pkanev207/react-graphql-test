@@ -1,13 +1,9 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable @typescript-eslint/no-unsafe-call */
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
-/* eslint-disable @typescript-eslint/ban-ts-comment */
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 //@ts-nocheck
 import express from "express";
 import "dotenv/config";
 import "graphql-import-node";
 import gql from "graphql-tag";
+import { readFileSync } from "fs";
 import cors from "cors";
 import colors from "colors";
 colors.enable();
@@ -16,11 +12,7 @@ import { ApolloServer } from "@apollo/server";
 import { buildSubgraphSchema } from "@apollo/subgraph";
 import { expressMiddleware } from "@apollo/server/express4";
 
-// import resolvers from "./resolvers/resolvers.js";
-import * as resolvers from "./src/resolvers/index.js";
-// console.log(resolvers);
-// import * as typeDefs from "./typeDefs/schema.js";
-import { readFileSync } from "fs";
+import * as resolvers from "./src/resolvers/index.ts";
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 //@ts-ignore
 const typeDefs = gql(
@@ -28,11 +20,9 @@ const typeDefs = gql(
     encoding: "utf-8",
   }),
 );
-
-// import { db } from "./db/conn.js";
+import Kitten from "./src/models/kittens.js";
 import connectDB from "./src/db/conn.js";
 void connectDB();
-import Kitten from "./src/models/kittens.js";
 
 const app = express();
 

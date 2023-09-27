@@ -33,6 +33,16 @@
 .FormContainer {
   border: 1px solid tomato;
   color: coral;
+  background-color: antiquewhite;
+  height: 35rem;
+
+  h3 {
+    color: peru;
+    text-align: left;
+    padding: 12px;
+    font-size: 22px;
+    margin-left: 12px;
+  }
   p {
     font-size: x-large;
   }
@@ -70,6 +80,17 @@
       height: 40px;
       width: 160px;
     }
+
+    input[type="password"] {
+      padding: 5px;
+      border: none;
+      border-radius: 20px;
+      outline: 0;
+      height: 20px;
+      width: 14rem;
+      font-size: 10px;
+      margin-bottom: 12px;
+    }
   }
 }
 
@@ -77,12 +98,46 @@
   display: flex;
   align-items: baseline;
   justify-content: space-around;
-  width: 70%;
+  width: 90%;
+  gap: 12px;
+
+  h4 {
+    text-align: right;
+    // color: #2ea44f;
+  }
 
   a {
     text-decoration: none;
     color: lime;
     font-size: x-large;
     font-family: cursive;
+  }
+
+  button {
+    appearance: none;
+    background-color: #2ea44f;
+    border: 1px solid rgba(27, 31, 35, 0.15);
+    border-radius: 6px;
+    box-shadow: rgba(27, 31, 35, 0.1) 0 1px 0;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: cursive;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 20px;
+    padding: 6px 16px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: middle;
+    white-space: nowrap;
+
+    box-shadow: rgba(46, 164, 79, 0.4) 0 0 0 3px;
+    outline: none;
   }
 }

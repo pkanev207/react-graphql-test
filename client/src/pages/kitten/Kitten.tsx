@@ -13,7 +13,6 @@ export const GET_KITTEN = gql`
     }
   }
 `;
-
 export const DELETE_KITTY = gql`
   mutation DeleteKitty($id: ID!) {
     deleteKitten(id: $id) {
@@ -21,7 +20,6 @@ export const DELETE_KITTY = gql`
     }
   }
 `;
-
 export default function Kitten() {
   const { id } = useParams();
   const navigate = useNavigate();

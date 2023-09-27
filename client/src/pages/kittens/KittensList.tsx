@@ -29,10 +29,7 @@ export default function KittensList() {
   return (
     <div className={styles.Kittens}>
       <div className="Holder">
-        <p> KittensList</p>
-        <Link to={"/create"} className={styles.CreateLink}>
-          Create
-        </Link>
+        <h4> KittensList</h4>
       </div>
 
       <ul>

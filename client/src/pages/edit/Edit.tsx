@@ -4,7 +4,6 @@ import { gql, useQuery, useMutation } from "@apollo/client";
 
 import { GET_KITTENS } from "../kittens/KittensList";
 import { GET_KITTEN } from "../kitten/Kitten";
-// import { CREATE_KITTY } from "../create/Create";
 
 export const UPDATE_KITTY = gql`
   mutation UpdateKitty($kittyId: ID!, $name: String!, $breed: String) {
@@ -20,7 +19,6 @@ export default function Edit() {
   const navigate = useNavigate();
   const { state } = useLocation();
   const { id } = state;
-  console.log(id);
   const [updateKitty] = useMutation(UPDATE_KITTY);
   const [formData, setFormData] = useState({ name: "", breed: "" });
 
@@ -37,7 +35,6 @@ export default function Edit() {
   }
 
   const { breed, name, id: kittyId } = data.getKitten;
-  console.log(breed, name, kittyId);
 
   useEffect(() => {
     setFormData({ name, breed });

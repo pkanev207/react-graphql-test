@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable no-empty-pattern */
-import User from "../models/user.js";
+import User from "../models/user.ts";
 
 const usersQuery = {
   getUser: async (_, args, {}) => {
@@ -15,13 +15,12 @@ const usersQuery = {
 
 const usersMutation = {
   createUser: async (parent, args, {}) => {
-    const user = new User({
-      name: args.name,
-      email: args.email,
-      password: args.password,
-    });
-
-    return await user.save();
+    const { name, email, password } = args.input;
+    const user = new User({ name, email, password });
+    await user.save();
+    //@ts-ignore
+    const token = await User.getJwtToken(user._id.toString());
+    return { name, token };
   },
   updateUser: async (parent, args, {}) => {
     return await User.findOneAndUpdate({ _id: args._id }, args);
