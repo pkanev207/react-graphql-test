@@ -20,6 +20,11 @@ input CreateUserInput {
   password: String!
 }
 
+input LoginUser {
+  email: String!
+  password: String!
+}
+
 type Kitten {
   id: String
   name: String!
@@ -27,6 +32,7 @@ type Kitten {
 }
 
 type Query {
+  loginUser(input: LoginUser): RegisteredUser!
   getUsers: [User]!
   getUser(id: ID!): User
   getKittens: [Kitten]

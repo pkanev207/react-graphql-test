@@ -9,7 +9,8 @@ const userSchema = new mongoose.Schema(
     name: { type: String, required: [true, "Please add a name"], validate: [validator.isAlphanumeric, "Please enter valid username"] },
     //@ts-ignore
     email: { type: String, required: true, validate: [validator.isEmail!, "Please enter a valid username"] },
-    password: { type: String, required: [true, "Please add a password"] },
+    password: { type: String, required: [true, "Please add a password"], select: false },
+    role: { type: String, enum: ["admin", "user"], default: "user" },
   },
   { timestamps: true },
 );

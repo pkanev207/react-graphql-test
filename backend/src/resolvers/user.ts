@@ -11,6 +11,30 @@ const usersQuery = {
   getUsers: async () => {
     return await User.find({});
   },
+  loginUser: async (parent, args, context) => {
+    const { email, password } = args.input;
+    if (!email || !password) {
+      throw new Error("Please provide email and password");
+    }
+
+    const user = await User.findOne({ email }).select("+password");
+    //@ts-ignore
+    const isValidPass = await User.isValidPassword(password, user.password);
+    if (isValidPass) {
+      // console.log(user);
+      return {
+        _id: user.id,
+        name: user.name,
+        email: user.email,
+        // role: user.role || "user",
+        role: user.role ?? "user",
+        //@ts-ignore
+        token: await User.getJwtToken(user._id.toString()),
+      };
+    }
+
+    throw new Error("User not found!!!");
+  },
 };
 
 const usersMutation = {
