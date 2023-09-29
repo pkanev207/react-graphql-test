@@ -18,11 +18,14 @@ export default function Create() {
   const [formData, setFormData] = useState({ name: "", breed: "" });
   const navigate = useNavigate();
 
+  // const { name , token, role} = JSON.parse(localStorage.getItem("user") || "{}");
+
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     createKitty({
       variables: { name: formData.name, breed: formData.breed },
       refetchQueries: [GET_KITTENS, "GetKittens"],
+      // context: { Headers: { Authorization: "token" } },
     });
 
     setFormData({ name: "", breed: "" });

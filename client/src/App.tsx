@@ -8,13 +8,10 @@ import Login from "./pages/login/Login";
 import Create from "./pages/create/Create";
 import Edit from "./pages/edit/Edit";
 import "./styles/styles.scss";
-
 // set "noEmit": true in tsconfig.json
-function App() {
-  console.log(process.env.S3_API);
-  console.log(process.env.STRANGE_INDIAN_NAME);
-  console.log(process.env.NODE_ENV);
+// console.log(process.env.S3_API, process.env.STRANGE_INDIAN_NAME, process.env.NODE_ENV);
 
+function App() {
   return (
     <BrowserRouter>
       <div className="Container">
@@ -33,8 +30,3 @@ function App() {
 }
 
 export default App;
-
-// import { useHistory, useLocation } from "react-router-dom";
-// const history = useHistory();
-// const location = useLocation();
-// console.log(history.location.pathname === location.pathname);

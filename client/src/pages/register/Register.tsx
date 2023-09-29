@@ -7,6 +7,7 @@ const CREATE_USER = gql`
     createUser(input: { name: $name, email: $email, password: $password }) {
       name
       token
+      role
     }
   }
 `;
@@ -34,13 +35,16 @@ export default function Register() {
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(name, email, password);
+    // console.log(name, email, password);
+    if (!name || !email || !password) {
+      throw new Error("Please provide name, email and password");
+    }
 
     registerUser({
       variables: { name, email, password },
       onCompleted: (data) => {
-        const { name, token } = data.createUser;
-        localStorage.setItem("user", JSON.stringify({ name, token }));
+        const { name, token, role } = data.createUser;
+        localStorage.setItem("user", JSON.stringify({ name, token, role }));
         setFormData({ name: "", email: "", password: "" });
         navigate("/");
         window.location.reload();

@@ -26,7 +26,11 @@ void connectDB();
 
 const app = express();
 
-app.use(cors());
+const corsOptions = {
+  origin: "http://localhost:8080",
+  credentials: true,
+};
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(function (err, req, res, next) {
   // only for invalid syntax json
@@ -35,16 +39,22 @@ app.use(function (err, req, res, next) {
   }
 });
 
-console.log(process.env.MY_SECRET);
-
 const server = new ApolloServer({
   schema: buildSubgraphSchema({ typeDefs, resolvers }),
 });
 await server.start();
 
-app.use("/graphql", express.json(), cors(), expressMiddleware(server));
+app.use(
+  "/graphql",
+  express.json(),
+  cors(),
+  expressMiddleware(server, {
+    // context: async b => b,
+    // context: async ({ req }) => ({ token: req.headers.token }),
+    context: async ({ req }) => req,
+  }),
+);
 
-// eslint-disable-next-line @typescript-eslint/no-misused-promises
 app.get("/test/kittens", async (_req, res) => {
   const kittens = await Kitten.find({});
   res.send(kittens);

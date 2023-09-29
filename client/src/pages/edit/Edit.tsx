@@ -18,6 +18,12 @@ export const UPDATE_KITTY = gql`
 export default function Edit() {
   const navigate = useNavigate();
   const { state } = useLocation();
+
+  if (state === null) {
+    // throw new Error("Not authorized");
+    navigate("/");
+  }
+
   const { id } = state;
   const [updateKitty] = useMutation(UPDATE_KITTY);
   const [formData, setFormData] = useState({ name: "", breed: "" });

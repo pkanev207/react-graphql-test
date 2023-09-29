@@ -10,12 +10,15 @@ export const GET_KITTENS = gql`
       id
       name
       breed
+      userId
     }
   }
 `;
 
 export default function KittensList() {
-  const { loading, error, data } = useQuery(GET_KITTENS);
+  const { loading, error, data } = useQuery(GET_KITTENS, {
+    // pollInterval: 500,
+  });
 
   if (loading) {
     return <div className="InfoBox">Loading...</div>;
@@ -25,7 +28,6 @@ export default function KittensList() {
     return <div className="InfoBox">Error: {error.message}</div>;
   }
 
-  // console.log(data.getKittens);
   return (
     <div className={styles.Kittens}>
       <div className="Holder">
@@ -33,7 +35,7 @@ export default function KittensList() {
       </div>
 
       <ul>
-        {data.kittens <= 0 ? (
+        {data.getKittens.length === 0 ? (
           <p>No kittens!</p>
         ) : (
           data.getKittens.map((k: any) => {

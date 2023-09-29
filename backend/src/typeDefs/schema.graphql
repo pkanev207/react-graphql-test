@@ -29,6 +29,7 @@ type Kitten {
   id: String
   name: String!
   breed: String
+  userId: ID
 }
 
 type Query {

@@ -2,7 +2,10 @@
   display: flex;
   flex-direction: column;
   color: chocolate;
-  border: 1px solid tomato;
+  border: 1px solid coral;
+  border-radius: 12px;
+  background-color: beige;
+  box-shadow: 55px 55px 55px 55px rgb(135, 162, 135);
   text-align: center;
   padding: 12px;
   /* font-family: cursive; */

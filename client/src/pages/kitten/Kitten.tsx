@@ -10,6 +10,7 @@ export const GET_KITTEN = gql`
       id
       name
       breed
+      userId
     }
   }
 `;
@@ -23,6 +24,7 @@ export const DELETE_KITTY = gql`
 export default function Kitten() {
   const { id } = useParams();
   const navigate = useNavigate();
+  const { role } = JSON.parse(localStorage.getItem("user") || "{}");
 
   const { loading, error, data } = useQuery(GET_KITTEN, {
     variables: { id },
@@ -57,30 +59,33 @@ export default function Kitten() {
         <li>
           <p>ID</p>: {data.getKitten.id}
         </li>
-        <li className="Holder">
-          <button
-            onClick={() => {
-              console.log("Clicked!");
-              navigate("/edit", { state: { ...data.getKitten } });
-            }}
-            className={styles.DeleteButton}
-            style={{ color: "limegreen" }}
-          >
-            Edit
-          </button>
-          <button
-            onClick={() => {
-              console.log("Clicked!");
-              console.log(delData);
-              deleteKitty({ variables: { id } });
-
-              navigate("/");
-            }}
-            className={styles.DeleteButton}
-          >
-            Delete
-          </button>
+        <li>
+          <p>userId</p>: {data.getKitten.userId}
         </li>
+        {role === "admin" ? (
+          <li className="Holder">
+            <button
+              onClick={() => {
+                navigate("/edit", { state: { ...data.getKitten } });
+              }}
+              className={styles.DeleteButton}
+              style={{ color: "limegreen" }}
+            >
+              Edit
+            </button>
+            <button
+              onClick={() => {
+                deleteKitty({ variables: { id } });
+
+                navigate("/");
+                console.log(delData);
+              }}
+              className={styles.DeleteButton}
+            >
+              Delete
+            </button>
+          </li>
+        ) : null}
       </ul>
     </div>
   );
